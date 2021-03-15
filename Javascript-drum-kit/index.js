@@ -1,26 +1,26 @@
-'use strict';
+"use strict";
 
-console.log('script loaded');
+// Sélectionne toutes les divs avec classe key
 
-const audioKick = document.querySelector("[src='sounds/LinnDrm_BD_aOrig.wav']");
+const divs = document.querySelectorAll(".key");
 
-const audioSnare = document.querySelector("[src='sounds/LinnDrm_SD_A1_aOrig.wav']");
+// Fonction pour jouer le son en fonction de la touche sur laquelle on appuie
 
-const audioCh = document.querySelector("[src='sounds/LinnDrm_HH_D2_aOrig.wav']");
+const playSound = (div, event) => {
+  // console.log(div.getAttribute("data-key"));
 
-const audioMh = document.querySelector("[src='sounds/LinnDrm_HH_D4_aOrig.wav']");
+  console.log(event);
+};
 
-const audioOh = document.querySelector("[src='sounds/LinnDrm_HHo_aOrig.wav']");
+// Pour chaque div dans la nodelist des divs on met un écouteur d'évènement sur le clavier
 
-const audioClap = document.querySelector("[src='sounds/LinnDrm_Clap_aOrig.wav']");
+divs.forEach((div, event) => {
+  div.addEventListener("keydown", playSound(div, event));
+});
 
-const audioHighTom = document.querySelector("[src='sounds/LinnDrm_TomHigh_aOrig.wav']");
-
-const audioMidTom = document.querySelector("[src='sounds/LinnDrm_TomMid_aOrig.wav']");
-
-const audioLowTom = document.querySelector("[src='sounds/LinnDrm_TomLow_aOrig.wav']");
-
-console.log(audioKick);
+window.addEventListener("keydown", event => {
+  console.log(event);
+});
 
 // Sélectionner les divs des touches et crée un tableau avec
 
@@ -28,8 +28,7 @@ const keys = document.querySelectorAll(".key");
 
 // Faire jouer les sons en appuyant sur les touches, et mettre l'animation sur la bonne div en fonction de celle sur laquelle on appuie. Stopper l'animation au bout de 50 ms.
 
-window.addEventListener("keydown", (e) => {
-
+/* window.addEventListener("keydown", e => {
   switch (e.keyCode) {
     case 65:
       audioKick.currentTime = 0;
@@ -113,8 +112,6 @@ window.addEventListener("keydown", (e) => {
       }, 50);
       break;
   }
-
-});
-
+}); */
 
 // KeyboardEvent.keyCode est déprécié, mieux vaut utiliser KeyboardEvent.code. J'ai utilisé KeyboardEvent.keyCode car les keycodes étaient mappés en fonction de cet event dans le HTML. Les mappings (les numéros / noms des touches) sont différents avec KeyboardEvent.code donc je n'ai pas voulu tout changer dans le HTML.
