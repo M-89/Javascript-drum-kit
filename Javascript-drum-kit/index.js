@@ -22,8 +22,8 @@ const playSound = event => {
         if (audioFile.dataset.key == event.keyCode) {
           // Si on trouve un fichier audio qui a le même dataset.key que le numéro de la touche on joue le fichier audio correspondant, et on lance la fonction pour changer le style sur la div correspondante
           audioFile.currentTime = 0; // Rembobine le son
-          audioFile.play();
-          setStyle(div);
+          audioFile.play(); // Joue le son
+          setStyle(div); // Change le style de la div
         }
       });
     }
@@ -31,6 +31,7 @@ const playSound = event => {
 };
 
 const setStyle = div => {
+  // On ajoute la classe playing à la div
   div.classList.add("playing");
 
   // On écoute l'évènement "transitionend" sur la div
