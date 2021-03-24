@@ -2,6 +2,8 @@
 
 const divs = document.querySelectorAll(".key");
 
+// Sélectionne tous les fichiers audio
+
 let audioFiles = document.querySelectorAll("audio");
 
 // On met un écouteur d'évènement sur la window qui écoute les touches du clavier
