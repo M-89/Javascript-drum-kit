@@ -7,7 +7,7 @@ class List {
     this.paragraphs = [];
   }
 
-  // GETTERS (avec returns implicites)
+  // GETTERS
 
   getList = () => this.list;
 
@@ -144,9 +144,13 @@ class List {
 
     if (document.cookie !== "") {
       for (let index = 0; index < splitCookies.length; index++) {
+        // On crée un list item et un paragraphe pour chaque cookie enregistré
+
         let listItem = document.createElement("li");
 
         let p = document.createElement("p");
+
+        // On formate les chaînes tirées des cookies correctement, ces chaînes deviennent les texContent des paragraphes
 
         if (index === 0) {
           p.textContent = splitCookies[index].slice(
@@ -164,6 +168,8 @@ class List {
       }
     }
   };
+
+  // Fonction pour supprimer un cookie en passant son nom en paramètre, peut être utile
 
   deleteCookie = cookieName => {
     document.cookie = cookieName + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
