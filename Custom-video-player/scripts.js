@@ -151,7 +151,7 @@ let mouseDown = false;
 
 progress.addEventListener("click", changeProgress);
 
-// Pour le cliquer et bouger pour changer la progression. Quand on bouge la souris, on vérifie si mouseDown est true, oui alors on lance la fonction changeProgress. On passe l'event du mousemove à changeProgress car elle en a besoin. Si mouseDown est faux, alors rien ne se passe, on ne passe pas à la fonction changeProgress.
+// Pour le cliquer et bouger pour changer la progression. Quand on bouge la souris, on vérifie si mouseDown est true, si oui alors on lance la fonction changeProgress. On passe l'event du mousemove à changeProgress car elle en a besoin. Si mouseDown est faux, alors rien ne se passe, on ne passe pas à la fonction changeProgress.
 
 videoObject.addEventListener(
   "mousemove",
